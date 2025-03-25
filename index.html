@@ -9,95 +9,126 @@
             margin: 0;
             background: url('fond.jpg') no-repeat center center fixed;
             background-size: cover;
-            overflow: hidden;
             text-align: center;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        h1 {
-            position: absolute;
-            color: #1f99e6;
-            top: -2vh; /* Ajusté pour un positionnement dynamique */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 4vw;
-            z-index: 1;
-            text-shadow: 0.3vw 0.3vw 0.5vw rgba(3, 51, 209, 0.5);
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
         }
 
         .logo {
             position: absolute;
-            top: 2vh;
-            left: 2vw;
-            width: 10vw;
-            height: auto;
-            z-index: 1;
+            top: 10px;
+            left: 10px;
+            width: 100vw;
+            max-width: 200px;
         }
 
-        .avatar-container, .container-aveugle, .container-ufr {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 2vw;
-            border: 0.5vw solid #87CEFA;
-            border-radius: 2vw;
-            box-shadow: 0 0 1.5vw rgba(0, 0, 255, 0.6);
-            z-index: 1;
-            width: 20vw;
-            height: 40vh;
+        h1 {
+            font-size: 3vw;
+            color: #1f99e6;
+            text-shadow: 3px 3px 5px rgba(3, 51, 209, 0.5);
         }
 
-        .avatar-container { left: 5%; }
-        .container-aveugle { left: 37%; }
-        .container-ufr { left: 69%; }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
 
-        /* Style pour la vidéo */
-        .avatar-container video {
+        .box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid #87CEFA;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box img, .box video {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajuste la vidéo sans déformer */
-        }
-
-        .container-aveugle img, .container-ufr img {
-            width: 100%;
-            height: 90%;
+            max-height: 300px;
             object-fit: contain;
+            border-radius: 10px;
         }
 
-        .avatar-container h2 {
-            font-size: 1.5vw;
-            color: #000000;
-            margin-top: 1vh;
+        .box h2 {
+            font-size: 1.2em;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                position: static;
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 5vw;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo -->
-    <img src="ATAS.png" alt="Logo de l'entreprise" class="logo">
-
-    <!-- Titre principal -->
-    <h1>Welcome to ATAS!</h1>
-
-    <!-- Conteneur de la vidéo -->
-    <div class="avatar-container">
-        <video id="signeVideo" autoplay muted loop>
-            <source src="signe.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-        <h2>Signe Langage</h2> <!-- Texte ajouté en noir dans le conteneur -->
+    <div class="header">
+        <img src="ATAS.png" alt="Logo de l'entreprise" class="logo">
+        <h1>Welcome to ATAS!</h1>
     </div>
 
-    <!-- Conteneur Assistance Vocale -->
-    <div class="container-aveugle">
-        <img src="vocal.png" alt="voice assistance">
-        <h2>Voice Assistance</h2>
-    </div>
+    <div class="content">
+        <div class="box">
+            <video id="signeVideo" autoplay muted loop>
+                <source src="signe.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <h2>Langage des signes</h2>
+        </div>
 
-    <!-- Conteneur Parcours UFR -->
-    <div class="container-ufr">
-        <img src="ufr.jpg" alt="UFR route">
-        <h2>UFR Route</h2>
+        <div class="box">
+            <img src="vocal.png" alt="voice assistance">
+            <h2>Assistance vocale</h2>
+        </div>
+
+        <div class="box">
+            <img src="ufr.jpg" alt="UFR route">
+            <h2>UFR Route</h2>
+        </div>
     </div>
 
     <!-- Audio de bienvenue -->
