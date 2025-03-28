@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue sur ATAS</title>
+    <title>Welcome to ATAS</title>
     <style>
         body {
             margin: 0;
@@ -163,7 +163,7 @@
         // Fonction pour initialiser la reconnaissance vocale
         function startSpeechRecognition() {
             let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = 'fr-FR'; // Langue : Français
+            recognition.lang = 'en-EN'; // Langue : Français
             recognition.interimResults = false; // Ne pas afficher les résultats en temps réel
             recognition.maxAlternatives = 1; // Maximum de 1 alternative pour ne pas avoir trop de résultats
 
