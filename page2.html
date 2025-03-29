@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi Voyage</title>
+    <style>
+        body {
+            margin: 0;
+            background: url('fond.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* Conteneur du train et du trait */
+        .train-container {
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Image du train */
+        .train-icon {
+            width: 200px;
+            left: 20%;
+            position: absolute;
+            top: -40px;
+        }
+
+        /* Ligne en pointillés */
+        .dashed-line {
+            width: 60%;
+            height: 5px;
+            border-top: 4px dashed rgb(0, 0, 0);
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Conteneur des boutons */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px; /* Espacement des boutons */
+            margin-top: 50px;
+        }
+
+        /* Style des boutons ovales */
+        .step-button {
+            width: 190px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: gray;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Bouton actif (en vert) */
+        .active {
+            background-color: green;
+            margin-left: 0;
+        }
+
+        /* Conteneur des infos */
+        .info-container {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1em;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Style du QR Code */
+        .qr-code {
+            width: 190px;
+            height: 190px;
+            margin-right: 15px;
+        }
+
+        /* Conteneur des informations texte */
+        .ticket-info {
+            flex-grow: 1;
+            padding-left: 15px;
+        }
+
+        /* Numéro du billet centré */
+        .ticket-number {
+            text-align: center; /* Centre le texte */
+            font-size: 1.1em;   /* Augmente légèrement la taille */
+            font-weight: bold;  /* Met en gras */
+            margin-bottom: 15px; /* Ajoute un espace sous le numéro */
+        }
+
+        /* Bouton Next */
+        .next-button {
+            margin-top: 27%;
+            padding: 15px 40px;
+            cursor: pointer;
+            font-size: 1.2em;
+            background-color: #0b751e;
+            border: none;
+            color: white;
+            border-radius: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: 24%;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="logo" src="ATAS.png" alt="Logo">
+
+    <!-- Conteneur du train et du trait -->
+    <div class="train-container">
+        <img class="train-icon" src="train.png" alt="Train">
+        <div class="dashed-line"></div>
+    </div>
+
+    <!-- Boutons ovales alignés sous le trait -->
+    <div class="buttons-container">
+        <button class="step-button active">Travel Info </button>
+        <button class="step-button">Departure station</button>
+        <button class="step-button">On board</button>
+        <button class="step-button">Arrival station</button>
+    </div>
+
+    <!-- Informations sur le billet -->
+    <div class="info-container">
+        <div class="ticket-info">
+            <p class="ticket-number"><strong>N° BILLET / TICKET NO:</strong> <strong>1320413960268757877</strong></p>
+
+            <p><strong>Departure Date :</strong> 10/01/2025</p>
+            <p><strong>Departure station :</strong> Rabat Agdal</p>
+            <p><strong>Departure Time: :</strong> 18:35 - Rabat</p>
+            <p><strong>Train N° :</strong> 128</p>
+            <p><strong>Train car :</strong> 24</p>
+            <p><strong>Place N° :</strong> 97</p>
+            <p><strong>Arrival :</strong> 19:30 - Casablanca Voyageurs</p>
+        </div>
+        <img class="qr-code" src="qr.jpg" alt="QR Code">
+    </div>
+
+    <!-- Bouton Next sous les infos -->
+    <button class="next-button" onclick="nextPage()">Next</button>
+
+    <script>
+        function nextPage() {
+            window.location.href = "simulation.html";  // Redirige vers la page3
+        }
+    </script>
+
+</body>
+
+</html>

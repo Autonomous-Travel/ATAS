@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page suivante</title>
+    <style>
+        body {
+            margin: 0;
+            background: url('fond.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            position: absolute;
+            color: #11d735;
+            top: 150px; /* Positionne le titre un peu plus bas */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4em;
+            z-index: 1;
+            text-shadow: 3px 3px 5px rgba(3, 209, 44, 0.5);
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: auto;
+            z-index: 1;
+        }
+
+        p {
+            position: absolute;
+            color: rgb(3, 0, 0);
+            top: 100px; /* Positionne le paragraphe un peu plus bas que le titre */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="logo" src="ATAS.png" alt="Logo">
+    <h1>Bienvenue sur la nouvelle page</h1>
+    <p>le service vocal marche bien!</p>
+
+    <script>
+        // Variable pour éviter que la synthèse vocale se répète
+        let isSpeaking = false;
+
+        // Fonction pour activer la synthèse vocale
+        function speakText(text) {
+            if (isSpeaking) return;  // Empêche la répétition
+            isSpeaking = true; // Indique que la synthèse est en cours
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // Langue anglaise
+            utterance.rate = 0.8; // Vitesse de la voix (moins rapide)
+            utterance.pitch = 1; // Hauteur de la voix
+
+            utterance.onend = function () {
+                isSpeaking = false; // Autorise la prochaine lecture après la fin
+            };
+
+            speechSynthesis.speak(utterance);
+        }
+
+        // Événement du mouvement du curseur
+        document.body.addEventListener('mousemove', function() {
+            speakText("Voice assistance successfully activated.");
+        });
+    </script>
+</body>
+
+</html>
