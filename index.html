@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur ATAS</title>
+    <style>
+        body {
+            margin: 0;
+            background: url('fond.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+    
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100vw;
+            max-width: 200px;
+        }
+
+        h1 {
+            font-size: 3vw;
+            color: #1f99e6;
+            text-shadow: 3px 3px 5px rgba(3, 51, 209, 0.5);
+        }
+
+        h3{
+            font-size: 2vw;
+            color: #e67c1f;
+            text-shadow: 3px 3px 5px rgba(244, 245, 250, 0.5);
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid #87CEFA;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box img, .box video {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .box h2 {
+            font-size: 1.2em;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        .email-link {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .email-link:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                position: static;
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 5vw;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <img src="ATAS.png" alt="Logo de l'entreprise" class="logo">
+    <h1>Welcome to ATAS!</h1>
+
+
+    <div class="header">
+        
+        
+        <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+    
+        <a class="email-link" href= "soluton.atas@gmail.com?subject=Inquiry&body=Hello, I would like to know more about...">Email Us</a>
+    </div>
+
+    <div class="content">
+        <div class="content">
+            <div class="box">
+                <img src="signe1.gif" alt="Langage des signes">
+                <h2>Langage des signes</h2>
+            </div>
+        </div>
+        
+        <div class="box">
+            <img src="vocal.png" alt="voice assistance">
+            <h2>Assistance vocale</h2>
+        </div>
+
+        <div class="box">
+            <img src="ufr.jpg" alt="UFR route">
+            <h2>UFR Route</h2>
+        </div>
+    </div>
+
+    <!-- Audio de bienvenue -->
+    <audio id="audioBienvenue">
+        <source src="hi.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'audio.
+    </audio>
+
+    <script>
+        // Fonction pour jouer l'audio
+        let audio = document.getElementById('audioBienvenue');
+        let audioPlayed = false; // Variable pour vérifier si l'audio a déjà été joué
+
+        function playAudio() {
+            if (!audioPlayed) { // Vérifier si l'audio n'a pas déjà été joué
+                audio.play();
+                audio.loop = false; // Désactiver la boucle pour gérer manuellement la répétition
+                audioPlayed = true; // Marquer que l'audio a été joué
+            }
+        }
+
+        // Détecter le mouvement du curseur pour jouer l'audio
+        document.addEventListener('mousemove', playAudio);
+
+        // Re-jouer l'audio après 10 secondes une fois qu'il est terminé
+        audio.addEventListener('ended', function() {
+            setTimeout(() => {
+                audio.play(); // Relance la lecture après 10 secondes
+            }, 10000); // 10000ms = 10 secondes
+        });
+
+    
+    </script>
+
+</body>
+</html>
